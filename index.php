@@ -31,8 +31,8 @@ class Movie {
 
 }
 
-$AvengersEndgame = new Movie('AvengersEndgame', 'fantasy', '2019', 'Anthony & Joe Russo');
-$Titanic = new Movie('Titanic', 'storico', '1997', 'James Cameron');
+$AvengersEndgame = new Movie('AvengersEndgame', ['Azione', 'Avventura', 'Fantasy', 'Fantascienza'], '2019', 'Anthony & Joe Russo');
+$Titanic = new Movie('Titanic', ['Storico', 'Drammatico', 'Romantico'], '1997', 'James Cameron');
 
 
 $AvengersEndgame->getCast('Robert Downey Jr.');
@@ -62,9 +62,11 @@ var_dump($Titanic);
     <title>Movie  PHP OOP</title>
 </head>
 <body>
+
+<!-- AVENGERS ENDGAME -->
 <?php
         echo ("<h1>" . 'Titolo:' . $AvengersEndgame->title . "</h1>");
-        echo ("<h2>" . 'Genere:' . $AvengersEndgame->genre . "</h2>");
+        echo ("<h2>" . 'Genere:' . implode(', ', $AvengersEndgame->genre) . "</h2>");
         echo ("<h3>" . 'Anno di produzione:' . $AvengersEndgame->year . "</h3>");
         echo ("<h4>" . 'Regia di:' . $AvengersEndgame->director . "</h4>");
 
@@ -75,17 +77,22 @@ var_dump($Titanic);
         };
         echo ("</ul>");
         echo ("</div>");
-
 ?>
 
+<!-- TITANIC -->
+        <h1>Titolo: <?= $Titanic->title ?> </h1>
+        <h2>Genere: <?= implode(', ', $Titanic->genre) ?> </h2>
+        <h3>Anno di produzione: <?= $Titanic->year ?> </h3>
+        <h4>Regia di: <?= $Titanic->director ?> </h4>
 
-
-
-
-
-
-
-
+        <h4>Cast principale: </h4>
+        <ul>
+        <?php foreach($Titanic->mainCast as $actor) {?> 
+                <li>
+                    <?= $actor ?>
+                </li>
+           <?php }; ?>
+        </ul>
 
 </body>
 </html>
