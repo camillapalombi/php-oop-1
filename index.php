@@ -3,19 +3,19 @@
 class Movie {
 
     //Variabili d'istanza:
-    private $title;
-    private $genre = [];
-    private $year;
-    private $duration;
-    private $poster;
-    private $originalLanguage;
-    private $originalTitle;
-    private $country;
-    private $filmCompany;
-    private $mainCast = [];
-    private $director;
-    private $rating;
-    private $description;
+    public $title;
+    public $genre;
+    public $year;
+    public $duration;
+    public $poster;
+    public $originalLanguage;
+    public $originalTitle;
+    public $country;
+    public $filmCompany;
+    public $mainCast = [];
+    public $director;
+    public $rating;
+    public $description;
 
     //Costruttore:
     function __construct($_title, $_genre, $_year, $director) {
@@ -51,13 +51,41 @@ $Titanic->getCast('Kathy Bates');
 
 var_dump($Titanic);
 
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie  PHP OOP</title>
+</head>
+<body>
+<?php
+        echo ("<h1>" . 'Titolo:' . $AvengersEndgame->title . "</h1>");
+        echo ("<h2>" . 'Genere:' . $AvengersEndgame->genre . "</h2>");
+        echo ("<h3>" . 'Anno di produzione:' . $AvengersEndgame->year . "</h3>");
+        echo ("<h4>" . 'Regia di:' . $AvengersEndgame->director . "</h4>");
 
-
-
-
-
-
-
+        echo("<h4>" . 'Cast principale:');
+        echo("<ul>");
+        foreach($AvengersEndgame->mainCast as $actor) {
+            echo ("<li>" . $actor . "</li>");
+        };
+        echo ("</ul>");
+        echo ("</div>");
 
 ?>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
